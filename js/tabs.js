@@ -1,17 +1,18 @@
 'use strict';
 
-const tabsHandlerElements = document.querySelectorAll('[data-tabs-handler]')
-const tabsContentElements = document.querySelectorAll('[data-tabs-field]')
+const tabsHandlerElement = document.querySelectorAll('[data-tabs-handler]')
+const tabsContentElement = document.querySelectorAll('[data-tabs-field]')
 
-// design-list__item_active
-for (let btn of tabsHandlerElements) {
+for (let btn of tabsHandlerElement) {
   btn.addEventListener('click', () => {
-    tabsHandlerElements.forEach(item => item.classList.remove('design-list__item_active'))
+    tabsHandlerElement.forEach(item => item.classList.remove('design-list__item_active'))
     btn.classList.add('design-list__item_active')
 
-    tabsContentElements.forEach(content => {
+    tabsContentElement.forEach(content => {
       if (content.dataset.tabsField === btn.dataset.tabsHandler) {
-        
+        content.classList.remove('hidden')
+      } else {
+        content.classList.add('hidden')
       }
     })
   })
