@@ -11,15 +11,22 @@ form.addEventListener('submit', (event) => {
     }
   }
 
-  fetch('https://jsonplaceholder.typicode.com/photos').then(response => {
-    if (response.status === 200 || response.status === 201) {
-      return response.json()
-    } else {
-      throw new Error(response.status)
-    }
-  }).then(data => {
-    console.log(data);
-  }).catch(error => {
-    alert('Fatal Error!!! ' + error.message);
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify(data)
   })
+    .then(response => {
+      if (response.status === 200 || response.status === 201) {
+        return response.json()
+      } else {
+        throw new Error(response.status)
+      }
+    })
+    .then(data => {
+      alert('Good mews everyone - everything is preserved.');
+      form.reset()
+    })
+    .catch(error => {
+      alert('Error! ' + error.message);
+    })
 })
