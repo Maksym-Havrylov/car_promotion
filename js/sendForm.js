@@ -23,7 +23,7 @@ form.addEventListener('submit', (event) => {
       }
     })
     .then(data => {
-      alert('Good mews everyone - everything is preserved.');
+      alert('Good news everyone - everything is preserved.');
       form.reset()
     })
     .catch(error => {
