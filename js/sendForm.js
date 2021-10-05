@@ -29,4 +29,4 @@ form.addEventListener('submit', (event) => {
     .catch(error => {
       alert('Error! ' + error.message);
     })
-})
+});
